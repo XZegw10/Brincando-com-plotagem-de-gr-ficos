@@ -11,6 +11,11 @@
     # pkgs.python311Packages.pip
     # pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
+    
+    pkgs.php83
+    # Esta é a linha corrigida
+    pkgs.php83Packages.composer 
+    
     pkgs.phpunit
     pkgs.phpactor
     pkgs.phpdocumentor
@@ -28,22 +33,18 @@
       "DEVSENSE.profiler-php-vscode"
     ];
 
-    # Enable previews
+previews = {
+    enable = true;
     previews = {
-      enable = true;
-      previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
+      web = {
+        # Esta é a linha corrigida. Usamos $PORT diretamente.
+        # Lembre-se de ajustar "public" se necessário.
+        command = ["php" "-S" "0.0.0.0:$PORT" "-t" "public"];
+        
+        manager = "web";
       };
     };
+  };
 
     # Workspace lifecycle hooks
     workspace = {
