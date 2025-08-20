@@ -7,9 +7,9 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     # pkgs.go
-    # pkgs.python311
-    # pkgs.python311Packages.pip
-    # pkgs.nodejs_20
+    pkgs.python311
+    pkgs.python311Packages.pip
+    pkgs.nodejs_20
     # pkgs.nodePackages.nodemon
     
     pkgs.php83
@@ -37,9 +37,8 @@ previews = {
     enable = true;
     previews = {
       web = {
-        # Esta é a linha corrigida. Usamos $PORT diretamente.
-        # Lembre-se de ajustar "public" se necessário.
-        command = ["php" "-S" "0.0.0.0:$PORT" "-t" "public"];
+        # O servidor agora serve a raiz do projeto para exibir a galeria de módulos.
+        command = ["php" "-S" "0.0.0.0:$PORT"];
         
         manager = "web";
       };
