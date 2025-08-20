@@ -6,19 +6,20 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    # pkgs.go
-    pkgs.python311
-    pkgs.python311Packages.pip
-    pkgs.nodejs_20
-    # pkgs.nodePackages.nodemon
+    # Base tools like Go, Python, and Node are likely pre-installed in IDX.
+    # We only add packages that are missing.
     
+    # PHP Environment
     pkgs.php83
-    # Esta é a linha corrigida
-    pkgs.php83Packages.composer 
-    
+    pkgs.php83Packages.composer
     pkgs.phpunit
     pkgs.phpactor
     pkgs.phpdocumentor
+
+    # New Dev Tools
+    pkgs.git-lfs
+    pkgs.direnv
+    pkgs.yq-go # For yaml processing
   ];
 
   # Sets environment variables in the workspace
